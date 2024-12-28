@@ -167,7 +167,7 @@ While we're here, let's quickly go over some parts of the schematic that might b
 
 ![(image of power)](images/power_schematic.png)
 
-Up in the top you'll see the power circuitry. This stuff is dead simple and mostly borrowed from the reference schematic. One thing to call out here are the resistors - these are required for the USB-C spec, and you need _both_ of them so the plug can orient itself. Could you lose these resistors and have the device still work? Maybe, but I'm not in the business of maybies, go talk to the horseshoe company or whatever.
+Up in the top you'll see the power circuitry. This stuff is dead simple and mostly borrowed from the reference schematic. One thing to call out here are the resistors - these are required for the USB-C spec, and you need _both_ of them so the plug can orient itself. Could you use one resistor and have the device still work? Probably, but I'm not in the business of probablies, go talk to the horseshoe company or whatever.
 
 ## Crystal Oscillator
 
@@ -258,21 +258,67 @@ So you download your uf2 file, put your PCB into boot mode, chuck that sucker in
 
 And that's it, you got Doom playing on a custom PCB! It can be a little finnicky with what keyboards it'll allow to be connected to it, but once you do you have full control over the game. My spi / i2c code does not use DMA, but I haven't found any framerate issues; if you're implementing a larger display and having some trouble, that would be a good place to start. 
 
-So where do we go from here? Well, a million different places, honestly. You could add bluetooth and play with a game controller, or make the first electric gloves that run Doom, make a GPIO add-on for the flipper zero, or any number of different things. 
+# What's next?
 
-I don't want to just give out the files for my business card since it would be trivial to delete my name and slap someone elses in there, but I'll do you one better by releasing this board:
+So where do we go from here? Well, a million different places, honestly. You could add a bluetooth chip and play with a game controller, or make the first electric gloves that run Doom, make a GPIO add-on for the flipper zero, or any number of different things. You'll need a PCB to use / modify though; unless you were following along, that's probably not in your possession right now. I don't want you to start from scratch, but I also don't want to just give out the files for my business card since it would be trivial to delete my name and slap someone elses in there. I'll do you one better by releasing this board:
 
 ![(pic of Doom Stamp, a small microcontroller built to run Doom)](images/doom_stamp.png)
 
 I'm calling it the Doom Stamp. It's got:
 
-* The same circuit as my business card in a very compact form factor
+* The same circuit as my business card in a very compact form factor (Status LED, separate power / data USB, boot button, optional power diodes, etc etc)
 * 2-layer, 1-sided board for easy fabrication
-* Status LED, separate power / data USB, boot button, optional power diodes, etc etc
+* M2 mounting holes 
 * A nice screw terminal for connecting external speakers
 
 The kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card). Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
 
-If you just want to play around with a tiny board built to run Doom, feel free to send the kicad file off to OSHPark or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
+If you just want to play around with a tiny board built to run Doom, feel free to send the kicad pcb file off to OSHPark (3 boards are ~$10) or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
+
+# BOM shenanigans
+
+You can generate the BOM in the schematic editor; there are also pre-generated BOMs at the base of the kicad project. A few things to note:
+
+### Crystal
+
+The crystal is **NOT** the reference crystal, as they were out of stock when I made the original circuit. The crystal I used is [this one](https://www.mouser.com/ProductDetail/774-403C35E12M00000), though case-compatible 12mhz crystals will work in the circuit as long as you tweak the support capacitors.
+
+### MCU
+
+It's weirdly difficult to find RP2040 MCUs on Mouser, but they are [here](https://www.mouser.com/ProductDetail/358-SC091413)
+
+### Flash
+
+use the flash specified in the RP2040 datasheet
+
+### Audio
+
+find whichever Max9835x is in stock and double check via the datasheet that it's a drop-in replacement for the Max98357.
+
+For the speaker terminal, the BOM csv has the part number (I haven't purchased it yet, so I don't have the link). You could also elect not to fill this component, and directly solder speaker wires, either way.
+
+### Voltage Regulator
+
+the voltage regulator I used was [this one](https://www.mouser.com/ProductDetail/onsemi/NCV1117ST33T3G?qs=8sOby8ZxZLHgqg5CFzeqiA%3D%3D), but I'd certainly look for comparable LDOs that are cheaper
+
+### Screen / Screen FPC
+
+the screen FPC I used is [this one](https://www.mouser.com/ProductDetail/TE-Connectivity/2328702-8?qs=w/v1CP2dgqphyFkupQxKkA%3D%3D). This FPC interfaces with two SPI displays that I know about. I purchased them from [this link](https://www.aliexpress.us/item/3256803794221438.html?gatewayAdapt=glo2usa), the 0.96 and the 1.14 inch version (the 1.14 being showcased in this document, as it is bigger and has much better colors). There may be other screens that work, though the code will need to be modified. 
+
+### Boot Switch
+
+the component photo is of a white switch, but the boot switch is [this one](https://www.mouser.com/ProductDetail/611-PTS636SL50SMTRLF)
+
+### USBs
+
+the two USB components used are [here](https://www.mouser.com/ProductDetail/640-USB4135-GF-A) and [here](https://www.mouser.com/ProductDetail/640-USB4105-GF-A-060)
+
+### USB Diodes
+
+the USB diodes are DNF; they would theoretically provide protection for the USB circuit and enforce power direction, but they're a little difficult to come by at the power I chose for the LDO. You'll need to bridge these pads, either with a wire, a 0-ohm resistor that's compatible with the footprint, or just solder. You could also use a regulator with less capacity and thus easier-to-find supporting diodes. Note that with the diodes installed, you need to provide separate power when programming the device, as the bottom usb will only be used for communication. 
+
+
+# That's it
+
 
 That's all, thanks for reading!
