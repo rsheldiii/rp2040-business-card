@@ -318,6 +318,11 @@ the two USB components used are [here](https://www.mouser.com/ProductDetail/640-
 the USB diodes are DNF; they would theoretically provide protection for the USB circuit and enforce power direction, but they're a little difficult to come by at the power I chose for the LDO. You'll need to bridge these pads, either with a wire, a 0-ohm resistor that's compatible with the footprint, or just solder. You could also use a regulator with less capacity and thus easier-to-find supporting diodes. Note that with the diodes installed, you need to provide separate power when programming the device, as the bottom usb will only be used for communication. 
 
 
+# Does it _really_ play Doom though?
+
+Indeed, so far throughout this document, I haven't provided any proof that the business card actually works. For posterity, I play the first level of Doom on the business card [here](https://youtu.be/YhjtOR5cU4k). Is that enough proof? what if I'm beaming a video of Doom via the USB port? I guess that means to _really_ prove it, you'll have to assemble a Doom Stamp and try it out for yourself.
+
+
 # That's it
 
 
