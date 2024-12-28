@@ -20,7 +20,7 @@ Doom is a popular 1990's shooter game - a boomer shooter, but back when boomer s
 
 # What qualifies as "Running Doom"?
 
-I'd argue there are 3 ways to run Doom on something: 
+I'd argue there are 3 main ways to run Doom on something: 
 
 ## Compilation 
 
