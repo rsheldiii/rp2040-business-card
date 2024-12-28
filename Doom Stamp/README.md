@@ -1,0 +1,1 @@
+![Doom Stamp](../images/doom_stamp.png)
