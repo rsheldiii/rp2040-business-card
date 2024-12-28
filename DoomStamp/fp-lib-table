@@ -1,5 +1,5 @@
 (fp_lib_table
   (version 7)
-  (lib (name "RP2040_minimal")(type "KiCad")(uri "${KIPRJMOD}/Doom Stamp.pretty")(options "")(descr ""))
+  (lib (name "RP2040_minimal")(type "KiCad")(uri "${KIPRJMOD}/DoomStamp.pretty")(options "")(descr ""))
   (lib (name "Custom")(type "KiCad")(uri "${KIPRJMOD}/Custom.pretty")(options "")(descr ""))
 )
