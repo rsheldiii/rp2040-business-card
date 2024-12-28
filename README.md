@@ -63,7 +63,7 @@ I'm going to walk you through everything I learned getting Doom to run in a coup
 
 The best way to solve a difficult problem is to remove constraints until you can solve it, then add them back one by one. _Understanding_ a problem mirrors this construction; Using my keycap to demonstrate how to design a device that can run Doom would be confusing, as I was designing for a small form factor. Components are crushed together, traces take 90-degree turns where they really shouldn't take 90-degree turns, ground planes cross over high-speed communication lines, the works. I don't want you picking up any more of my bad habits than absolutely necessary, so let's start with something a bit more straightforward, and a LOT bigger: My business card!
 
-![alt text](images/business_card.jpg)
+![alt text](images/business_card_2.jpg)
 
 Now, this is not _the_ business card that runs doom, it is _a_ business card that _can_ run doom. it can also run a NES emulator and lots of other things too, and has a handy set of GPIO pins at the top. Despite the larger form factor, the circuit is fundamentally the same as my keycap, just all on one side and much easier to follow.
 
@@ -143,7 +143,7 @@ Let me introduce you, my friends, to the [RP2040 datasheet](https://datasheets.r
 ![(image of minimal design example)](images/minimal_design_example.png)
 
 
-The _minimal design example_ is a reference implementation of an RP2040-based microcontroller. It's not the best microcontroller out there - it doesn't have a status LED - but it's the bare minimum components required to get the RP2040 running stably. 
+The _minimal design example_ is a reference implementation of an RP2040-based microcontroller. It's not the best microcontroller out there - it doesn't even have a status LED - but it's the bare minimum components required to get the RP2040 running stably. 
 
 If you take a look at the pcb, you'll notice the crystal oscillator circuit looks fairly similar to the circuit on my board as well - that's because I just straight up copy-pasted it into my design. That might feel like a cop-out, but hardware manufactures, really, _really_ want you to use reference designs. They spend significant amounts of time and effort designing their chips and testing the physical and electrical properties of their devices, they'd _really_ prefer you just stick to the reference designs so the chip works just as it should. Fun little side note, the Raspberry Pi foundation actually [got burnt](https://arstechnica.com/gadgets/2019/07/raspberry-pi-4-uses-incorrect-usb-c-design-wont-work-with-some-chargers/) by not following reference designs in the past with one of their USB-C chargers, so even large companies are fallible to design mistakes.
 
@@ -227,7 +227,7 @@ You can see that the USB lines are straight and impedance matched, we've got a n
 
 Now we've got a PCB that runs Doom in theory, but how do we get a PCB that runs doom... in practice?
 
-well, you send your design to a fab! Each fab has their own rules and constraints listed on their website, sometimes with step-by-step tutorials on how to configure your EDA for their service; it's a good idea to run through these and make sure your board complies. Shoutouts to [OSHPark](https://www.oshpark.com) here who are a pretty phenomenal, US-based phab. I use them for prototyping as they don't have a minimum price. Plus, you can upload your kicad project directly to them instead of having to generate gerber files! You have to buy stencils on a separate website but they are reasonably priced and even have a neat lil' import button. You're gonna _need_ stencils by the way, unless you can hand-solder a QFN56.
+well, you send your design to a fab! Each fab has their own rules and constraints listed on their website, sometimes with step-by-step tutorials on how to configure your EDA for their service; it's a good idea to run through these and make sure your board complies. Shoutouts to [OSHPark](https://www.oshpark.com) here who are a pretty phenomenal, US-based fab. I use them for prototyping as they don't have a minimum price. Plus, you can upload your kicad project directly to them instead of having to generate gerber files! You have to buy stencils on a separate website but they are reasonably priced and even have a neat lil' import button. You're gonna _need_ stencils by the way, unless you can hand-solder a QFN56.
 
 # Assembly
 
@@ -259,10 +259,19 @@ And that's it, you got Doom playing on a custom PCB! It can be a little finnicky
 
 So where do we go from here? Well, a million different places, honestly. You could add bluetooth and play with a game controller, or make the first electric gloves that run Doom, make a GPIO add-on for the flipper zero, or any number of different things. 
 
-I don't want to just give out the files for my business card since it would be trivial to delete my name and slap someone elses in there, but I'll do you one better: [here]() is the kicad project for this board:
+I don't want to just give out the files for my business card since it would be trivial to delete my name and slap someone elses in there, but I'll do you one better by releasing this board:
 
-(image of new board)
+![(pic of Doom Stamp, a small microcontroller built to run Doom)](images/doom_stamp.png)
 
-This is the original Doom circuit in a very compact form factor. The kicad files are available in the description. If you just want to play around with a tiny board built to run Doom, feel free to send those off to OSHPark. If you want to use my design as a starting point for your own, by all means!
+I'm calling it the Doom Stamp. It's got:
+
+* The same circuit as my business card in a very compact form factor
+* 2-layer, 1-sided board for easy fabrication
+* Status LED, separate power / data USB, boot button, optional power diodes, etc etc
+* A nice screw terminal for connecting external speakers
+
+The kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card). Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
+
+If you just want to play around with a tiny board built to run Doom, feel free to send the kicad file off to OSHPark or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
 
 That's all, thanks for reading!
