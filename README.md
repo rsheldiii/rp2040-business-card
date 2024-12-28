@@ -1,4 +1,4 @@
-# Doom on a Business Card - and more!
+# How to make Doom run on a business card!
 
 ![Doom running on a business card](images/business_card.jpg)
 
