@@ -2568,10 +2568,6 @@
     (uuid fe85f00f-cf75-43bc-ac93-0519b296f7e2)
   )
 
-  (text "USB" (at 27.94 104.14 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 05b51cac-788a-4bc2-a249-c9902f2252c4)
-  )
   (text "Make sure C8 is close to pin 45 of RP2040" (at 120.65 82.55 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 061409f9-cd2d-4a45-95be-43468be62930)
@@ -2589,9 +2585,25 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 5b2e1790-5e01-4acf-a9a4-0e786015cfcd)
   )
+  (text "MCU" (at 189.23 74.93 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 615612a2-af5b-4e8d-a4d5-9848a1da0a3f)
+  )
+  (text "Screen" (at 373.38 215.9 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid 6ef47988-3c6d-43f2-9d6b-c8b1856590ed)
+  )
   (text "Flash" (at 45.72 198.12 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid 811805a5-3f6c-4c7a-9307-45ee0634a602)
+  )
+  (text "LED" (at 325.12 24.13 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid ca9e713e-88a7-42b6-8f06-54263330c1b5)
+  )
+  (text "Input" (at 30.48 99.06 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid cc4f7b18-05dc-4faa-9c15-7decc1742326)
   )
   (text "Crystal" (at 41.91 247.65 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
@@ -2600,6 +2612,10 @@
   (text "Power" (at 54.61 33.02 0)
     (effects (font (size 2.54 2.54)) (justify left bottom))
     (uuid e1be0d96-466c-4b31-a58c-0253b16e24e5)
+  )
+  (text "Audio" (at 341.63 130.81 0)
+    (effects (font (size 2.54 2.54)) (justify left bottom))
+    (uuid f99c03e1-c656-4cb6-96e5-ad73a181d1ba)
   )
 
   (label "GPIO26_ADC0" (at 245.11 180.34 180) (fields_autoplaced)
@@ -2932,7 +2948,7 @@
     (pin "8" (uuid f5662661-070d-4fe8-98a4-6d808da34578))
     (pin "9" (uuid 593af0c3-bb5f-4867-a6dc-5ea60b8d2893))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "U3") (unit 1)
         )
@@ -2958,7 +2974,7 @@
     (pin "1" (uuid 2693e20e-d221-4474-98d6-e797d59d7969))
     (pin "2" (uuid dfb01aa3-3645-4481-be95-106c91e5c373))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C2") (unit 1)
         )
@@ -2984,7 +3000,7 @@
     (pin "1" (uuid 78625439-6b25-4a0a-a232-d4f3fe9eb659))
     (pin "2" (uuid a0523cb1-d668-4117-8da3-a4a63b4970f4))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C3") (unit 1)
         )
@@ -3009,7 +3025,7 @@
     )
     (pin "1" (uuid b3c10dee-9b07-4de8-a451-a4d5de8ffd5e))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR06") (unit 1)
         )
@@ -3041,7 +3057,7 @@
     (pin "7" (uuid 8ccc9bf7-9416-48dd-8663-d53dc15134a3))
     (pin "8" (uuid 3fd2446d-5e16-4b52-8c59-581b768c6b69))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "U2") (unit 1)
         )
@@ -3066,7 +3082,7 @@
     )
     (pin "1" (uuid 3ed9436a-ec45-43cc-b66c-5a04193e3358))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR07") (unit 1)
         )
@@ -3091,7 +3107,7 @@
     )
     (pin "1" (uuid 55468a50-ac09-4659-bf89-5e09179e31c3))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR08") (unit 1)
         )
@@ -3117,7 +3133,7 @@
     (pin "1" (uuid b3f97868-f7b6-4a2c-ad37-1126728366ed))
     (pin "2" (uuid 91e86a19-f9b8-49f8-b4ad-544602881f5a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R2") (unit 1)
         )
@@ -3143,7 +3159,7 @@
     (pin "1" (uuid 45ba1e90-9186-47b6-adae-5fdb2bcc84bf))
     (pin "2" (uuid 194e966a-8523-4801-a958-f4d2c43b740b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R1") (unit 1)
         )
@@ -3169,7 +3185,7 @@
     (pin "1" (uuid 1a30ed3c-165a-41d2-b1f5-2c8237fa2d25))
     (pin "2" (uuid 35b20785-688c-4639-8c3c-0d9d4416956f))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C5") (unit 1)
         )
@@ -3194,7 +3210,7 @@
     )
     (pin "1" (uuid 6579b416-a152-472c-b5a7-c6669fa222d5))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR011") (unit 1)
         )
@@ -3219,7 +3235,7 @@
     )
     (pin "1" (uuid a676a792-b33a-47cf-b5e9-be47d78dae0d))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR016") (unit 1)
         )
@@ -3244,7 +3260,7 @@
     )
     (pin "1" (uuid f515c757-4941-41f3-8cfc-3808c4f968c4))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR015") (unit 1)
         )
@@ -3270,7 +3286,7 @@
     (pin "1" (uuid ebead648-279a-48ca-889e-d4a6cfa87c4c))
     (pin "2" (uuid c910dc82-66c8-40bf-ab70-2f67c20a50da))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R3") (unit 1)
         )
@@ -3296,7 +3312,7 @@
     (pin "1" (uuid d9b9548f-3dd6-47ea-9660-b878b1a3010f))
     (pin "2" (uuid fd8bb687-e38a-4970-adcc-c2286d7a4110))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R4") (unit 1)
         )
@@ -3321,7 +3337,7 @@
     )
     (pin "1" (uuid c33f44c3-5a27-420f-8b09-986c5ddce6fa))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR01") (unit 1)
         )
@@ -3346,7 +3362,7 @@
     )
     (pin "1" (uuid e779eaa6-dbcd-4e95-92f9-375a6df9c2ce))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR017") (unit 1)
         )
@@ -3371,7 +3387,7 @@
     )
     (pin "1" (uuid 1186ac80-6451-446f-a3ac-8e540e997439))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR014") (unit 1)
         )
@@ -3397,7 +3413,7 @@
     (pin "1" (uuid 58efa8a0-6e2a-4b15-a0cf-83f727e55e4a))
     (pin "2" (uuid b4e106a3-4a81-4a87-8c91-6cb897cb623b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C6") (unit 1)
         )
@@ -3423,7 +3439,7 @@
     (pin "1" (uuid 7033ec13-759a-40cf-b71c-2033899ba713))
     (pin "2" (uuid f9112e5b-a4d0-47e7-8a7c-a84819f21e2c))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C7") (unit 1)
         )
@@ -3449,7 +3465,7 @@
     (pin "1" (uuid 9a98c8f1-a808-40c0-b535-fc78c02c5cd6))
     (pin "2" (uuid 2fc98474-fd42-4db5-82d0-743e85d10b35))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C8") (unit 1)
         )
@@ -3475,7 +3491,7 @@
     (pin "1" (uuid f579cb9a-401c-46ae-8ea4-3078e3e223b0))
     (pin "2" (uuid c7d3b94d-acbe-431e-abb1-53983649569b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C10") (unit 1)
         )
@@ -3500,7 +3516,7 @@
     )
     (pin "1" (uuid 92e0692f-4032-4603-99bf-a99f6c2ef44f))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR012") (unit 1)
         )
@@ -3525,7 +3541,7 @@
     )
     (pin "1" (uuid 6de478de-e727-458e-89a1-8d4733fa0ae1))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR013") (unit 1)
         )
@@ -3550,7 +3566,7 @@
     )
     (pin "1" (uuid 0bd8993c-7c98-4dd2-9608-a7d5d0d654cd))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR018") (unit 1)
         )
@@ -3577,7 +3593,7 @@
     (pin "2" (uuid e416e789-741d-494f-a182-09d30ef4c1e5))
     (pin "3" (uuid 0f0410e8-a979-4c7c-ae22-0c54656f3854))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "U1") (unit 1)
         )
@@ -3602,7 +3618,7 @@
     )
     (pin "1" (uuid 89c9cb26-c8c1-4837-b553-041dd678d4d4))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR03") (unit 1)
         )
@@ -3627,7 +3643,7 @@
     )
     (pin "1" (uuid c6e7e4f6-cbb2-47ba-aa00-f0c2d4f442d8))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR05") (unit 1)
         )
@@ -3652,7 +3668,7 @@
     )
     (pin "1" (uuid eb1a6bec-d415-4d9a-8802-cf44b827d278))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR09") (unit 1)
         )
@@ -3678,7 +3694,7 @@
     (pin "1" (uuid 2614e02a-ff09-4eec-837a-deb050b46207))
     (pin "2" (uuid d020ae5c-d096-491e-b84b-b1790dc22067))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C1") (unit 1)
         )
@@ -3704,7 +3720,7 @@
     (pin "1" (uuid 78fb59fe-3e95-4da0-9da0-12fbc0845a14))
     (pin "2" (uuid d5117dca-18c6-409c-b7d9-aa83847a79c5))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C4") (unit 1)
         )
@@ -3729,7 +3745,7 @@
     )
     (pin "1" (uuid ccf7f13c-45ce-44f0-b49a-6c3d1c3d9aba))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR04") (unit 1)
         )
@@ -3754,7 +3770,7 @@
     )
     (pin "1" (uuid ea213741-116e-4efc-ba94-432db51f6350))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR010") (unit 1)
         )
@@ -3780,7 +3796,7 @@
     (pin "1" (uuid 36b7fcb2-528a-43c8-b340-db1e630a2b6a))
     (pin "2" (uuid e8c2f9e8-5cd0-42e4-9cb0-7c9c3b2aa5aa))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R5") (unit 1)
         )
@@ -3806,7 +3822,7 @@
     (pin "1" (uuid 2b6fdfb9-7398-417e-b05c-ec4b997d73cf))
     (pin "2" (uuid 0be3d449-79f7-49f6-a576-f969179a8894))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "Y1") (unit 1)
         )
@@ -3831,7 +3847,7 @@
     )
     (pin "1" (uuid 83b5f963-a964-4653-9626-ba716735b862))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR024") (unit 1)
         )
@@ -3857,7 +3873,7 @@
     (pin "1" (uuid 7be6b82d-fea4-4d4c-b29e-7354a4474ceb))
     (pin "2" (uuid 87d69279-c359-4e69-bb84-3b8c938752c0))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C17") (unit 1)
         )
@@ -3882,7 +3898,7 @@
     )
     (pin "1" (uuid ad3ef15e-dfe2-4c80-ae64-00e4dfb4bcbb))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR025") (unit 1)
         )
@@ -3908,7 +3924,7 @@
     (pin "1" (uuid 3b112c1a-09ff-4d3f-9042-19b1adfa8a32))
     (pin "2" (uuid b2182f1b-e995-48c9-818a-d35780e94e4b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "SW1") (unit 1)
         )
@@ -3933,7 +3949,7 @@
     )
     (pin "1" (uuid 99bd3cbc-8487-458a-b767-1597ef31b9f9))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR02") (unit 1)
         )
@@ -3958,7 +3974,7 @@
     )
     (pin "1" (uuid 9fc3c2a7-f82c-4b4f-9f40-78d7232b65bc))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR039") (unit 1)
         )
@@ -3984,7 +4000,7 @@
     (pin "1" (uuid 0ea8a824-2745-49f2-a51b-2237a2bb7684))
     (pin "2" (uuid 47fe4a2e-7f31-4f5a-8768-8c3eb2a9b53b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C13") (unit 1)
         )
@@ -4010,7 +4026,7 @@
     (pin "1" (uuid 35c774ee-80ae-4d64-abcd-8808777e1a59))
     (pin "2" (uuid 00601ad4-5a66-4265-bd64-e36709bc52ef))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R10") (unit 1)
         )
@@ -4036,7 +4052,7 @@
     (pin "1" (uuid dd0dd947-dd01-43e8-bab6-4abb45a8b9fc))
     (pin "2" (uuid 7e9ba813-db79-451b-aced-de4f5ab19e50))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C20") (unit 1)
         )
@@ -4067,7 +4083,7 @@
     (pin "1" (uuid 5083a287-3692-4ce6-9f07-0d6be1a2df3d))
     (pin "2" (uuid 820afd49-b627-4482-a236-2510fb5c5a4c))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C18") (unit 1)
         )
@@ -4113,7 +4129,7 @@
     (pin "B9" (uuid 785df462-9047-47c8-93a1-9f28214536ec))
     (pin "S1" (uuid 83572a18-0460-4fcd-bbc5-e8fefcae7626))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "J1") (unit 1)
         )
@@ -4127,7 +4143,7 @@
     (property "Reference" "D2" (at 44.45 33.655 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "D_Schottky" (at 44.45 35.56 0)
+    (property "Value" "DNF" (at 44.45 35.56 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_0805_2012Metric" (at 44.45 44.45 0)
@@ -4139,7 +4155,7 @@
     (pin "1" (uuid 674c30d6-69c9-4f24-9c44-8eaaa3123a06))
     (pin "2" (uuid 43610153-12eb-4067-be6d-0800ab8bcbc4))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "D2") (unit 1)
         )
@@ -4165,7 +4181,7 @@
     (pin "1" (uuid 1545f89c-0417-414f-840a-b5020b5e5164))
     (pin "2" (uuid 87a41055-04da-4fc1-90b5-a6b31d2acebf))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C15") (unit 1)
         )
@@ -4195,7 +4211,7 @@
     )
     (pin "1" (uuid b553eab1-dcfa-4a09-9002-335fd70d862a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR022") (unit 1)
         )
@@ -4220,7 +4236,7 @@
     )
     (pin "1" (uuid f76b3706-6e76-4817-a0ba-9328bf5c1340))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR023") (unit 1)
         )
@@ -4251,7 +4267,7 @@
     (pin "1" (uuid 5fd288b5-9c2c-4f3a-b431-7b34fea7493b))
     (pin "2" (uuid 35d313f0-feec-4f63-b5e8-17a5b9ec5cab))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C9") (unit 1)
         )
@@ -4276,7 +4292,7 @@
     )
     (pin "1" (uuid a2e4c4cd-b0df-408a-8051-7eae31b9a59c))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR032") (unit 1)
         )
@@ -4302,7 +4318,7 @@
     (pin "1" (uuid dcca02f0-82f8-4175-9147-cd1bbe1a8677))
     (pin "2" (uuid e72433d3-429f-44a1-85d2-7014d5260896))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R11") (unit 1)
         )
@@ -4327,7 +4343,7 @@
     )
     (pin "1" (uuid 44690ff5-0573-4660-9f06-86a02ce13053))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR026") (unit 1)
         )
@@ -4359,7 +4375,7 @@
     (pin "7" (uuid ed5c2a6e-15ea-49ef-a941-0562cba24931))
     (pin "8" (uuid 40762f06-44aa-439b-aee7-657488f72c03))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "U4") (unit 1)
         )
@@ -4400,7 +4416,7 @@
     (pin "8" (uuid 41d7aafa-2440-4317-9855-7a069307fbab))
     (pin "9" (uuid 766827bb-7bd1-4dad-82ba-d9cc4c0f4782))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "U5") (unit 1)
         )
@@ -4425,7 +4441,7 @@
     )
     (pin "1" (uuid 06fec760-7ebb-4857-a6ca-a1f1fd744bfb))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR030") (unit 1)
         )
@@ -4450,7 +4466,7 @@
     )
     (pin "1" (uuid 52018c2d-86b9-413e-b1a4-ed4ff9f58a02))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR033") (unit 1)
         )
@@ -4481,7 +4497,7 @@
     (pin "1" (uuid e743246e-9846-4d60-9d9c-ff5128b4aaef))
     (pin "2" (uuid 9a8e5655-6fff-4f4a-a576-45c9bb05d616))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R6") (unit 1)
         )
@@ -4507,7 +4523,7 @@
     (pin "1" (uuid 2f5f39a6-6e17-49ed-af91-998d64855536))
     (pin "2" (uuid 92c4e9a8-91e6-4e21-a1d1-bf0eeef8997e))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R8") (unit 1)
         )
@@ -4533,7 +4549,7 @@
     (pin "1" (uuid 2e420b48-26bb-404b-9f3c-00a98f62399a))
     (pin "2" (uuid a704860a-11ce-4ad1-be34-3cf82bed43dd))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "D1") (unit 1)
         )
@@ -4558,7 +4574,7 @@
     )
     (pin "1" (uuid d72c7ed1-7d51-4c79-be0a-bf525fa53771))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR035") (unit 1)
         )
@@ -4584,7 +4600,7 @@
     (pin "1" (uuid 5cd1b8cc-0ee0-4d5e-9751-dcd5bbbfd306))
     (pin "2" (uuid 187da17d-160c-417e-8a69-9d87448e58f7))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C19") (unit 1)
         )
@@ -4615,7 +4631,7 @@
     (pin "1" (uuid abfef697-8b47-4b50-af56-937fe8e6ad5a))
     (pin "2" (uuid 8711b844-3de0-48d1-b8d7-7c23a8c02506))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R13") (unit 1)
         )
@@ -4640,7 +4656,7 @@
     )
     (pin "1" (uuid 4b861a0f-4a18-4aba-ba42-5caf33d3b87b))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR028") (unit 1)
         )
@@ -4665,7 +4681,7 @@
     )
     (pin "1" (uuid d8d03ef6-45fa-4340-9045-8a7b95e9292a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR029") (unit 1)
         )
@@ -4690,7 +4706,7 @@
     )
     (pin "1" (uuid 8a204c95-a7a5-4bff-aaa4-3ed847ab5f68))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR037") (unit 1)
         )
@@ -4715,7 +4731,7 @@
     )
     (pin "1" (uuid 4dfdcec0-b83c-46bb-9550-98db8fa4bc31))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR020") (unit 1)
         )
@@ -4741,7 +4757,7 @@
     (pin "1" (uuid 919e6158-20be-4b33-93d7-6b8cf4ffffab))
     (pin "2" (uuid 34e21530-469f-4405-a8ba-24e79daef12d))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C14") (unit 1)
         )
@@ -4772,7 +4788,7 @@
     (pin "1" (uuid ef396bbb-e4ce-4b16-9db2-d1b6793f8ce0))
     (pin "2" (uuid 80021883-ab69-4bf8-ad03-67a75b10dd47))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C11") (unit 1)
         )
@@ -4797,7 +4813,7 @@
     )
     (pin "1" (uuid 5d256e1f-2d26-4d6d-af06-929a1361e41d))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR034") (unit 1)
         )
@@ -4823,7 +4839,7 @@
     (pin "1" (uuid 7a257b53-b24e-4bb8-b97d-f8ad2dfe86e1))
     (pin "2" (uuid e994ab8a-9ac9-441b-ac0c-5298d8462099))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R12") (unit 1)
         )
@@ -4849,7 +4865,7 @@
     (pin "1" (uuid 6249ff36-3025-4a56-9364-8d68f2d2bc53))
     (pin "2" (uuid 76cceca9-ebd6-49d9-bfa6-66ee0e016f76))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C21") (unit 1)
         )
@@ -4879,7 +4895,7 @@
     )
     (pin "1" (uuid 62069e44-3719-4013-a709-e828d6257005))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR0103") (unit 1)
         )
@@ -4905,7 +4921,7 @@
     (pin "1" (uuid 0d700e76-47d0-4ce0-b3b9-5ac354f16a30))
     (pin "2" (uuid 140a4c93-7271-4814-84e8-2b5aabdd7a0a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C16") (unit 1)
         )
@@ -4941,7 +4957,7 @@
     (pin "B9" (uuid b9435554-f54f-4aac-90b9-c7ea749a707e))
     (pin "S1" (uuid 80f5f6b5-742c-4568-95ae-927eb3cb442f))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "J6") (unit 1)
         )
@@ -4966,7 +4982,7 @@
     )
     (pin "1" (uuid 26c63a8c-616c-4382-94b3-93ea6d6792f7))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR021") (unit 1)
         )
@@ -4992,7 +5008,7 @@
     (pin "1" (uuid c0d3f3dc-9ff1-4c5e-971b-704f74d782f9))
     (pin "2" (uuid 2f4bb9f7-9b0c-44e0-9dcc-866fbad3ee5a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "LS1") (unit 1)
         )
@@ -5018,7 +5034,7 @@
     (pin "1" (uuid 06982664-d8a0-4f5d-83f9-1f6f43a2c5d5))
     (pin "2" (uuid 513e03b7-9448-4f8b-99b2-7b60f2050e7d))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "C12") (unit 1)
         )
@@ -5043,7 +5059,7 @@
     )
     (pin "1" (uuid 6c3047aa-43c5-45f7-9f18-467b2a80c62e))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR027") (unit 1)
         )
@@ -5068,7 +5084,7 @@
     )
     (pin "1" (uuid b8d7b25a-d7b2-4bf2-93f7-66756a15d33a))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR038") (unit 1)
         )
@@ -5094,7 +5110,7 @@
     (pin "1" (uuid 1a55cc6f-6519-4fa9-a460-2e4d5f865a20))
     (pin "2" (uuid ec71c61e-851a-480d-8a35-e5a7990692cf))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R9") (unit 1)
         )
@@ -5119,7 +5135,7 @@
     )
     (pin "1" (uuid 0767378a-e2b1-43aa-8a41-f05bac7ea3b0))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR0102") (unit 1)
         )
@@ -5144,7 +5160,7 @@
     )
     (pin "1" (uuid 6d5b0eda-0325-4c3d-b0f0-126f1457a89d))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR0101") (unit 1)
         )
@@ -5169,7 +5185,7 @@
     )
     (pin "1" (uuid a7c4a67f-f8e5-409e-9b1b-7ea7f160ffb0))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR031") (unit 1)
         )
@@ -5195,7 +5211,7 @@
     (pin "1" (uuid 7b27fcc1-dc1d-4845-b7c8-2ac917308743))
     (pin "2" (uuid 7c9e7352-4b80-4013-9dc6-194c30458504))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "R7") (unit 1)
         )
@@ -5209,7 +5225,7 @@
     (property "Reference" "D3" (at 55.88 101.6 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "D_Schottky" (at 55.88 104.14 0)
+    (property "Value" "DNF" (at 55.88 104.14 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Diode_SMD:D_0805_2012Metric" (at 55.88 106.68 0)
@@ -5221,7 +5237,7 @@
     (pin "1" (uuid f9942c5b-1391-4525-a320-90594ed7bc6c))
     (pin "2" (uuid 47b38c29-6df6-435e-9967-d26f3c6fbe1c))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "D3") (unit 1)
         )
@@ -5246,7 +5262,7 @@
     )
     (pin "1" (uuid faedf742-c6fe-42a5-aa35-5e292a49e99e))
     (instances
-      (project "Doom Keycap"
+      (project "Doom Stamp"
         (path "/77021050-bcb0-4b49-bdda-626f3f1ae810"
           (reference "#PWR019") (unit 1)
         )

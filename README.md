@@ -1,7 +1,5 @@
 # Doom on a Business Card - and more!
 
-this is still in progress, if you stumbled on this, good job!
-
 ![Doom running on a business card](images/business_card.jpg)
 
 Maybe you're like me, you're mindlessly scrolling through social media and between all the NileRed and LeagleEagle shorts you see a video about someone running Doom on their smart fridge or something. You exhale lightly out your nose and keep scrolling, but something's nagging at the back of your brain—why Doom? how do people even figure this stuff out? And, can I do something like that? I'm here to tell you you can, even if - like me - you don't have a single hardware hacker bone in your body.
@@ -14,11 +12,11 @@ Let's do some quick housekeeping, just in case:
 
 ![(image of Doom)](images/doom.png)
 
-Doom is a popular 1990's shooter game - a boomer shooter, but back when boomer shooters were just called shooters, but also... did Boomers even play shooters? it's 1993, boomers are like 40 years old by now. Anyways, Doom builds off the fundamentals of predecessors like Wolfenstein, featuring a first-person perspective, an arsenal of weaponry and intricate level design. Doom's source code was famously open-sourced, and famously well-written, which has, in part, led to the proliferation of the "It Runs Doom" meme. If you'd like to learn more about how Doom works, I can highly recommend the ["Game Engine Black Book Doom"](https://fabiensanglard.net/gebbdoom/), which goes into much more detail than I would be able to.
+Doom is a popular 1990's shooter game - a boomer shooter, but back when boomer shooters were just called shooters, but also... did Boomers play shooters? Doom came out in 1993, boomers were like 40 years old by then. Anyways, Doom builds off the fundamentals of predecessors like Wolfenstein, featuring a first-person perspective, an arsenal of weaponry and intricate level design. Doom's code was famously open-sourced, and famously well written, which has, in part, led to the proliferation of the "It Runs Doom" meme. If you'd like to learn more about how Doom works, I highly recommend the ["Game Engine Black Book Doom"](https://fabiensanglard.net/gebbdoom/), which goes into much more detail than I would be able to.
 
 ## What is "It Runs Doom"?
 
-It Runs Doom is a popular [memetic construct](https://knowyourmeme.com/memes/it-runs-doom) where by pure skill or psychotic devotion, a programmer gets Doom running on something it probably shouldn't. Maybe that's a printer, or an ipod mini, or an oscilloscope, or even... a pregnancy test? Well, yes, but also... no. but... kind of?
+"It Runs Doom" is a popular [memetic construct](https://knowyourmeme.com/memes/it-runs-doom) where by pure skill or psychotic devotion, a programmer gets Doom running on something it probably shouldn't. Maybe that's a printer, or an ipod mini, or an oscilloscope, or even... a pregnancy test? Well, yes, but also... no. but... kind of?
 
 # What qualifies as "Running Doom"?
 
@@ -26,13 +24,16 @@ I'd argue there are 3 ways to run Doom on something:
 
 ## Compilation 
 
-The first, and most classic, is via compilation. This is where you upload a program to the device that uses the device's original hardware to interpret and display Doom. Depending on the device, this is easier or harder than you might think; if the device is using a common, powerful consumer chip and has an exposed UART or other debug programming header, it could be about as easy as writing a screen driver. If the device is locked down, or Doom hasn't ever been compiled for the hardware, or you hit memory or space limitations, things can spiral in complexity pretty quickly. At the end of the day though, making Doom run on original hardware breaks down into three high-level steps:
+![Doom compiling on Linux](images/compiling.png)
+
+
+The first, and most classic, is via compilation: you upload a program to the device that uses the device's original hardware to interpret and display Doom. Depending on the device, this is easier or harder than you might think; if the device is using a common, powerful consumer chip and has an exposed UART or other debug programming header, it could be about as easy as writing a screen driver. If the device is locked down, or Doom hasn't ever been compiled for the hardware, or you hit memory or space limitations, things can spiral in complexity pretty quickly. At the end of the day though, making Doom run on original hardware breaks down into three high-level steps:
 
 1. You need to gain write access
 2. You need to compile doom for the hardware target, taking into account any hardware limitations
 3. You need to adapt the display, audio, and input code to use the device's hardware
 
-That's about as much as I'm qualified to explain due to aforementioned lack of hardware-hacking ossicles. Beyond that, there are thousands upon thousands of different types of consumer devices with the capability to run Doom, and probably thousands of people better equipped to explain how to do so, so we'll leave this category to the side for now.
+That's about as much as I'm qualified to explain due to aforementioned lack of hardware-hacking ossicles. There are thousands upon thousands of different types of consumer devices with the capability to run Doom, and probably thousands of people better equipped to explain how to do so, so we'll leave this category to the side for now.
 
 # Display
 
@@ -46,32 +47,32 @@ The second way to run Doom applies to things like dot matrix displays or an osci
 
 The final way to run Doom is to take the original hardware _out_ of the device and run Doom on custom-built hardware _inside_ the device, the most famous example of this being the [pregnancy test](https://www.popularmechanics.com/science/a33957256/this-programmer-figured-out-how-to-play-doom-on-a-pregnancy-test/), but I also made a [keycap](https://github.com/rsheldiii/rp2040-doom-lcd) that runs doom, which is a similar concept, and [this guy](https://youtu.be/o76U0JPrMFk) got Doom running on a LEGO brick in much the same way. 
 
-While this is not nearly the same as hacking Doom onto a printer, sidestepping encryption and sniffing protocols, it's not the soulless copout some people would have you believe. If you make your own device that runs Doom, you'll gain a ton of knowledge about:
+While this is not nearly the same as hacking Doom onto a printer while sidestepping encryption and sniffing protocols, it's not the soulless copout some people would have you believe. If you make your own device that runs Doom, you'll gain a ton of knowledge about:
 
 * PCB design
 * Crystal oscillator circuits
 * The USB specification
-* miniaturization
+* miniaturization and efficient trace routing
 * Early 90's programming
 * And more! 
 
-I'm going to walk you through everything I learned getting Doom to run in a couple of different form factors so that you too can make your own device that runs Doom.
+I'm going to walk you through everything I learned getting Doom to run in a couple of different form factors so that you too can make your own device that runs Doom!
 
 # Creating a PCB that runs Doom
 
 ![alt text](<images/doom keycap pcbnew.png>)
 
-The best way to solve a difficult problem is to remove constraints until you can solve it, then add them back one by one. _Understanding_ a problem mirrors this construction; Using my keycap to demonstrate how to design a device that can run Doom would be confusing, as I was designing for a small form factor. Components are crushed together, traces take 90-degree turns where they really shouldn't take 90-degree turns, ground planes cross over high-speed communication lines, the works. I don't want you picking up any more of my bad habits than absolutely necessary, so let's start with something a bit more straightforward, and a LOT bigger: My business card!
+The best way to solve a difficult problem is to remove constraints until you can solve it, then add them back one by one. _Understanding_ a problem mirrors this construction; Using my keycap to demonstrate how to design a device that can run Doom would be confusing, as I was designing for a small form factor. Components are crushed together, traces take 90-degree turns where they really shouldn't take 90-degree turns, the works. I don't want you picking up any more of my bad habits than absolutely necessary, so let's start with something a bit more straightforward, and a LOT bigger: My business card!
 
 ![alt text](images/business_card_2.jpg)
 
-Now, this is not _the_ business card that runs doom, it is _a_ business card that _can_ run doom. it can also run a NES emulator and lots of other things too, and has a handy set of GPIO pins at the top. Despite the larger form factor, the circuit is fundamentally the same as my keycap, just all on one side and much easier to follow.
+I want to stress this is not _the_ business card that runs doom, it is _a_ business card that _can_ run doom. it can also run a NES emulator and lots of other things too, and has a handy set of GPIO pins at the top. Despite the larger form factor, the circuit is fundamentally the same, just all on one side and much easier to follow.
 
 # Prototyping
 
 But, how did we get here? How did we go from saying "I want to run Doom on my X" to having an X that runs Doom?
 
-Well, step 0 is to have somebody else do it first. Graham Sanderson from the Raspberry Pi foundation wrote a _fantastic_ port of Choco Doom As part of the promotional material for the RP2040. Graham jumped through an amazing amount of hoops to get Doom running on the RP2040, like optimizing WAD file size by over 50% and writing some assembler PIO code to output to VGA. Graham's port output a DVI signal, which can be displayed via HDMI. I took Graham's code and built off of it by uh... very carefully ripping out some of those optimizations, and implementing some generic SPI/I2c screen support. if you'd like to learn more about the crazy stuff graham did in his port, I highly recommend his detailed rundown on his [github page](https://kilograham.github.io/rp2040-doom/).
+Well, step 0 is to have somebody else do it first. Graham Sanderson from the Raspberry Pi foundation wrote a _fantastic_ port of Choco Doom As part of the promotional material for the RP2040. Graham jumped through an amazing amount of hoops to get Doom running on the RP2040, like optimizing WAD file size by over 50% and writing some assembler PIO code to output to VGA, which can be displayed via HDMI. I took Graham's code and built off of it by uh... very carefully ripping out some of those optimizations, and implementing some generic SPI/I2c screen support. if you'd like to learn more about the crazy stuff graham did in his port, I highly recommend his detailed rundown on his [github page](https://kilograham.github.io/rp2040-doom/).
 
 So after step 0, step 1 is to prototype. This mess of wires:
 
@@ -86,9 +87,9 @@ then repeat. For this project, that meant flashing the firmware in the first pla
 
 [![(image of code with the word "BORING" stamped on it that links to git diff)](images/boring_code.png)](https://github.com/kilograham/rp2040-doom/compare/rp2040...rsheldiii:rp2040-doom-LCD:rp2040)
 
-So now we've got our prototype working, Doom is playing on a raspberry pi pico hooked up to an Adafruit amplifier board (more on that later) and an OLED breakout. I could have made a carrier board for all these devices, slapped my name and email on it and called it a day; that's definitely a business card, and it would definitely run Doom. But we'd be wasting a lot of the potential of the pico with it's 26 I/O pins, it'd be impossible to make small enough to fit in a keycap, and also that's boring. 
+So now we've got our prototype working, Doom is playing on a raspberry pi pico hooked up to an Adafruit amplifier board (more on that later) and an OLED breakout. I could have made a carrier board for all these devices, slapped my name and email on it and called it a day; that's definitely a business card, and it would definitely run Doom. But we'd be wasting a lot of the potential of the pico with it's 26 I/O pins, it'd be impossible to make small enough to fit in a keycap, and also that's pretty underwhelming.
 
-So, If we wanted to make our own, custom board, what would it need to "run" Doom? like, what components from the ones we've already assembled here are necessary for that purpose?
+So, If we wanted to make our own, custom board, what would it need to "run" Doom? like, what components from the ones we've already assembled are necessary for that purpose?
 
 # Component Requirements
 
@@ -96,13 +97,13 @@ So, If we wanted to make our own, custom board, what would it need to "run" Doom
 
 ![a zoomed in image of the RP2040 processor](images/rp2040.jpg)
 
-For starters, you need a processor, and we've got ourselves covered with the Raspberry Pi RP2040. Featuring a dual-core Arm Cortex m0, 264KB of SRAM, and support for up to 16MB of flash, it like... it doesn't seem like it's big enough, does it? I mean, it's way fast enough, but I'll be forever in awe of how Graham got doom running on a 16th of the original RAM requirements. We could use the new RP2350 here - in fact Doom would run even better - but I'll be damned if I can find the bare MCU anywhere...
+For starters, you need a processor, and we've got ourselves covered with the Raspberry Pi RP2040. Featuring a dual-core Arm Cortex m0, 264KB of SRAM, and support for up to 16MB of flash... it doesn't seem like it's big enough, does it? I mean, it's way fast enough, but I'll be forever in awe of how Graham got doom running on a 16th of the original RAM requirements. We could use the new RP2350 here - in fact Doom would run even better - but I'll be damned if I can find the bare MCU anywhere...
 
 ### Crystal Oscillator
 
 ![a zoomed-in image of the crystal oscillator component](images/crystal.jpg)
 
-but what else do you need to run Doom? Well, the RP2040 _needs_ a crystal oscillator... sort of. Every microcontroller needs at least one oscillator to run the clock, but the RP2040 already has an oscillator, it just kind of... sucks. it's there for boot initialization, but it's accuracy is terrible, literally between 1.8 and 12MHZ. You can physically run the RP2040 without an external crystal, and the rp2040 might crunch the numbers that could theoretically put Doom on a screen, but you'd have to clock an i2c screen way, _way_ down to get anything to show - we're talking a couple FPS at most. So in any case, in our circumstance, we absolutely need an external crystal oscillator.
+but what else do you need to run Doom? Well, the RP2040 _needs_ a crystal oscillator... sort of. Every microcontroller needs at least one oscillator to run the clock, but the RP2040 already has an oscillator, it just kind of sucks. it's there for boot initialization, but it's accuracy is terrible, literally between 1.8 and 12MHZ. You can physically run the RP2040 without an external crystal, and the rp2040 might crunch the numbers that could theoretically put Doom on a screen, but you'd have to clock an i2c screen way, _way_ down to get anything to show - we're talking a couple FPS at most. So in any case, in our circumstance, we absolutely need an external crystal oscillator.
 
 ### Flash
 
@@ -114,7 +115,7 @@ You also need a flash chip, so you can store Doom. Think of flash as the hard dr
 
 ![image of power regulator component](images/power.png)
 
-You'll need power as well, obviously. If you're not worried about efficiency, power can be pretty simple; we're going to use an LDO, or low drop-out voltage regulator, to get the RP2040 the 3.3 volts it needs from the USB lines. You could use a buck converter for higher efficiency but they're a little more complicated, so we'll stick with the LDO for now.
+You'll need power as well, obviously. If you're not worried about efficiency, power can be pretty simple; we're going to use an LDO, or low drop-out voltage regulator, to get the RP2040 the 3.3 volts it needs from the USB lines. You could use a buck converter for higher efficiency but they usually require more support components, so we'll stick with the LDO for now.
 
 ### Is that it?
 
@@ -145,11 +146,11 @@ Let me introduce you, my friends, to the [RP2040 datasheet](https://datasheets.r
 
 The _minimal design example_ is a reference implementation of an RP2040-based microcontroller. It's not the best microcontroller out there - it doesn't even have a status LED - but it's the bare minimum components required to get the RP2040 running stably. 
 
-If you take a look at the pcb, you'll notice the crystal oscillator circuit looks fairly similar to the circuit on my board as well - that's because I just straight up copy-pasted it into my design. That might feel like a cop-out, but hardware manufactures, really, _really_ want you to use reference designs. They spend significant amounts of time and effort designing their chips and testing the physical and electrical properties of their devices, they'd _really_ prefer you just stick to the reference designs so the chip works just as it should. Fun little side note, the Raspberry Pi foundation actually [got burnt](https://arstechnica.com/gadgets/2019/07/raspberry-pi-4-uses-incorrect-usb-c-design-wont-work-with-some-chargers/) by not following reference designs in the past with one of their USB-C chargers, so even large companies are fallible to design mistakes.
+If you take a look at the pcb, you'll notice the crystal oscillator circuit looks fairly similar to the circuit on my board as well - that's because I just straight up copy-pasted it into my design (and modified it slightly). That might feel like a cop-out, but hardware manufactures, really, _really_ want you to use reference designs. They spend significant amounts of time and effort designing their chips and testing the physical and electrical properties of their devices, they'd _really_ prefer you just stick to the reference designs so the chip works just as it should. Fun little side note, the Raspberry Pi foundation actually [got burnt](https://arstechnica.com/gadgets/2019/07/raspberry-pi-4-uses-incorrect-usb-c-design-wont-work-with-some-chargers/) by not following reference designs in the past with one of their USB-C chargers, so even large companies are fallible to design mistakes.
 
 # Introducing Kicad
 
-OK, so we've got a nice little reference design to base our PCB off of and the list of parts we're going to use, but how do we actually _use_ the reference design to design our PCB? Well, the reference design is a Kicad project, which happens to be a free PCB design software! Learning how to use kicad is it's own topic, and I'm not very qualified to teach it, but I learned by watching the "Getting To Blinky" series by [Contextual Electronics](). Those tutorials have not been updated since Kicad 5, but there really hasn't been that much groundbreaking stuff between 5 and 7, so they're still a good watch. 
+OK, so we've got a reference design to base our PCB off of and the list of parts we're going to use, but how do we actually _use_ the reference design to design our PCB? Well, the reference design is a Kicad project, which happens to be a free PCB design software! Learning how to use kicad is it's own topic, and I'm not very qualified to teach it, but I learned by watching the "Getting To Blinky" series by [Contextual Electronics](https://www.youtube.com/watch?v=BVhWh3AsXQs&list=PLy2022BX6EspFAKBCgRuEuzapuz_4aJCn). Those tutorials have not been updated since Kicad 5, but there really hasn't been that much groundbreaking stuff between 5 and 7, so they're still a good watch. 
 
 A nice thing about Kicad is the circuit and schematic designs are separate - you can lay out a circuit that performs a particular function, then link circuit symbols to schematic footprints. Once you switch to the PCB editor, those schematic footprints are linked together with what's called the "rat's nest", which correctly link together the pins of the components you laid out in the circuit diagram. neat!
 
@@ -160,13 +161,13 @@ Now that we have our EDA and a couple reference designs to base our components o
 ![(image of circuit)](images/the_circuit.png)
 
 
-While we're here, let's quickly go over some parts of the schematic that might be confusing. I'm absolutely not an electrical engineer, I just cosplay as one on the weekends, so take my advice with a grain of salt, but hey, the thing works so...
+While we're here, let's quickly go over some parts of the schematic that might be confusing. I'm **absolutely** not an electrical engineer, I just cosplay as one on the weekends, so take my advice with a grain of salt, but hey, the thing works so...
 
 ## Power
 
 ![(image of power)](images/power_schematic.png)
 
-Up in the top you'll see the power circuitry. This stuff is dead simple and mostly borrowed from the reference schematic. One thing to call out here are the resistors - these are required for the USB-C spec, and you need _both_ of them so the plug can orient itself. Could you lose these resistors and have the device still work? probably, but I'm not in the business of probablies, go talk to the horseshoe company or whatever.
+Up in the top you'll see the power circuitry. This stuff is dead simple and mostly borrowed from the reference schematic. One thing to call out here are the resistors - these are required for the USB-C spec, and you need _both_ of them so the plug can orient itself. Could you lose these resistors and have the device still work? Maybe, but I'm not in the business of maybies, go talk to the horseshoe company or whatever.
 
 ## Crystal Oscillator
 
@@ -178,13 +179,13 @@ Down below power delivery is the crystal oscillator. My advice is to use the ref
 
 ![(image of flash circuit)](images/flash_schematic.png)
 
-After the crystal is the flash circuitry, which is ripped right out of the reference schematic. I would highly recommend staying within the same family of Winbond flash chips when you design your circuit, as the rp2040 is a bit picky about what chips it will talk with; I know the people over at [Digi-key's youtube channel](https://youtu.be/kcwvuwetgEQ?t=2979) had some trouble in this department - side note that is still an excellent video to watch if you want a more general look at hardware development for the RP2040. 
+After the crystal is the flash circuitry, which is ripped right out of the reference schematic. I would highly recommend staying within the same family of Winbond flash chips when you design your circuit, as the rp2040 is a bit picky about what chips it will talk with; I know the people over at [Digi-key's youtube channel](https://youtu.be/kcwvuwetgEQ?t=2979) had some trouble in this department, though that is still an excellent video to watch if you want a more general look at hardware development for the RP2040. 
 
 ## Audio
 
 ![(image of audio circuit)](images/audio_schematic.png)
 
-Looping around, we have the amplifier circuitry. This is to spec with adafruit's Max98357 schematic. All resistor values were determined by looking at the data sheet to give us 9db of gain and a 50/50 mono output. It's worth noting that the Max98357 is a speaker amplifier, not a headphone amplifier; it might work with some really dinky headphones, but if you wanted a headphone-based system, you should be looking at a headphone amplifier instead.
+Looping around, we have the amplifier circuitry. This is very similar to adafruit's Max98357 schematic. All resistor values were determined by looking at the data sheet to give us 9db of gain and a 50/50 mono output. It's worth noting that the Max98357 is a speaker amplifier, not a headphone amplifier; it might work with some really dinky headphones, but if you wanted a headphone-based system, you should be looking at a headphone amplifier instead.
 
 ## Screen
 
@@ -219,7 +220,7 @@ The blue lines are the "rat's nest" we talked about earlier. Your job is to elim
 
 ![An image of the PCB](images/the_pcb_schematic.png)
 
-You can see that the USB lines are straight and impedance matched, we've got a nice, stitched ground plane under the crystal oscillator and the trace runs for most components are pretty short. I can already see one sin I committed, I put the 27ohm resistors for the USB lines at the USB connector, when they should be closer to the RP2040. However, "Closer" is a relative term, and we're super over-engineering this dinky lil USB bus here, so we'll be perfectly fine. That goes for the impedance and length matching as well.
+Power is in the top left, with audio at the bottom left, input at the bottom, flash at the bottom right, the screen top right, and finally the crystal oscillator (and GPIO) at the top. You can see that the USB lines are straight and impedance matched, we've got a nice, stitched ground plane under the crystal oscillator and the trace runs for most components are pretty short. I can already see one sin I committed, I put the 27ohm resistors for the USB lines at the USB connector, when they should be closer to the RP2040. However, "Closer" is a relative term, and we're super over-engineering this dinky lil USB bus here, so we'll be perfectly fine. That goes for the impedance and length matching as well.
 
 # Fabrication
 
