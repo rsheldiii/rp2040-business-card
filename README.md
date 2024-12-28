@@ -2,7 +2,7 @@
 
 ![Doom running on a business card](images/business_card.jpg)
 
-Maybe you're like me, you're mindlessly scrolling through social media and between all the NileRed and LeagleEagle shorts you see a video about someone running Doom on their smart fridge or something. You exhale lightly out your nose and keep scrolling, but something's nagging at the back of your brain—why Doom? how do people even figure this stuff out? And, can I do something like that? I'm here to tell you you can, even if - like me - you don't have a single hardware hacker bone in your body.
+Maybe you're like me, you're mindlessly scrolling through social media and between all the NileRed and LegalEagle shorts you see a video about someone running Doom on their smart fridge or something. You LQTM and keep scrolling, but something's nagging at the back of your brain — why Doom? ow do people even figure this stuff out? And, can I do something like that? I'm here to tell you you can, even if - like me - you don't have a single hardware hacker bone in your body.
 
 # What is Doom? What is "It Runs Doom"?
 
@@ -87,7 +87,7 @@ then repeat. For this project, that meant flashing the firmware in the first pla
 
 [![(image of code with the word "BORING" stamped on it that links to git diff)](images/boring_code.png)](https://github.com/kilograham/rp2040-doom/compare/rp2040...rsheldiii:rp2040-doom-LCD:rp2040)
 
-So now we've got our prototype working, Doom is playing on a raspberry pi pico hooked up to an Adafruit amplifier board (more on that later) and an OLED breakout. I could have made a carrier board for all these devices, slapped my name and email on it and called it a day; that's definitely a business card, and it would definitely run Doom. But we'd be wasting a lot of the potential of the pico with it's 26 I/O pins, it'd be impossible to make small enough to fit in a keycap, and also that's pretty underwhelming.
+So now we've got our prototype working, Doom is playing on a Raspberry Pi Pico hooked up to an Adafruit amplifier board (more on that later) and an OLED breakout. I could have made a carrier board for all these devices, slapped my name and email on it and called it a day; that's definitely a business card, and it would definitely run Doom. But we'd be wasting a lot of the potential of the pico with it's 26 I/O pins, it'd be impossible to make small enough to fit in a keycap, and also that's pretty underwhelming.
 
 So, If we wanted to make our own, custom board, what would it need to "run" Doom? like, what components from the ones we've already assembled are necessary for that purpose?
 
@@ -121,7 +121,7 @@ You'll need power as well, obviously. If you're not worried about efficiency, po
 
 Now, some very select people might argue that you could stop here. You power the system, the microcontroller uses the crystal to communicate at high speeds with the flash chip, pulling the information it needs to run Doom - it just... doesn't display it anywhere. A younger me would argue this is sufficient - if I unplug my monitor, does my computer stop running? When I unplug the screen from my business card, each flash of the LED is another frame rendered into the ether. Is it not "running" Doom? 
 
-But that's not really what we mean when something "plays" doom. Video games are multisensory, interactive experiences, if you can't _play_ a game, is it really a game at all? To that end, we need three more things: we need a screen, we need some way to input commands, and we need audio.
+But that's not really what we mean when something "plays" doom. Video games are multi-sensory, interactive experiences, if you can't _play_ a game, is it really a game at all? To that end, we need three more things: we need a screen, we need some way to input commands, and we need audio.
 
 ### Screen
 
@@ -173,7 +173,7 @@ Up in the top you'll see the power circuitry. This stuff is dead simple and most
 
 ![(Image of crystal oscillator schematic)](images/crystal_schematic.png)
 
-Down below power delivery is the crystal oscillator. My advice is to use the reference crystal and just _never touch this part of the circuit again_. Crystal oscillators are effectively black magic, they are crazy susceptible to noise and other issues, if you get it working just leave it alone. It's actually so common to have a crystal that needs extra time to stabilize that there's a build variable - PICO_XOSC_STARTUP_DELAY_MULTIPLIER - that does so. If the reference crystal is out of stock try to find the most comparable crystal, follow the datasheet's recomendations for resistance and capacitance, stitch a healthy ground plane away from high-speed signals, enable the build variable and cross your fingers.
+Down below power delivery is the crystal oscillator. My advice is to use the reference crystal and just _never touch this part of the circuit again_. Crystal oscillators are effectively black magic, they are crazy susceptible to noise and other issues, if you get it working just leave it alone. It's actually so common to have a crystal that needs extra time to stabilize that there's a build variable - PICO_XOSC_STARTUP_DELAY_MULTIPLIER - that does so. If the reference crystal is out of stock try to find the most comparable crystal, follow the datasheet's recommendations for resistance and capacitance, stitch a healthy ground plane away from high-speed signals, enable the build variable and cross your fingers.
 
 ## Flash
 
@@ -185,13 +185,13 @@ After the crystal is the flash circuitry, which is ripped right out of the refer
 
 ![(image of audio circuit)](images/audio_schematic.png)
 
-Looping around, we have the amplifier circuitry. This is very similar to adafruit's Max98357 schematic. All resistor values were determined by looking at the data sheet to give us 9db of gain and a 50/50 mono output. It's worth noting that the Max98357 is a speaker amplifier, not a headphone amplifier; it might work with some really dinky headphones, but if you wanted a headphone-based system, you should be looking at a headphone amplifier instead.
+Looping around, we have the amplifier circuitry. This is very similar to Adafruit's Max98357 schematic. All resistor values were determined by looking at the data sheet to give us 9db of gain and a 50/50 mono output. It's worth noting that the Max98357 is a speaker amplifier, not a headphone amplifier; it might work with some really dinky headphones, but if you wanted a headphone-based system, you should be looking at a headphone amplifier instead.
 
 ## Screen
 
 ![(image of screen circuit)](images/screen_schematic.png)
 
-Making our way up here, we finally get to the screen. Schematically there isn't much to talk about here - like most small screens, the screens I'm using have their own drive circuitry, so we're really just connecting pins to bare pins here. Swapping to a new screen would requrie reviewing the screen's datasheet and rejiggering the connectoions here. The RP2040 is pretty unique in that the I2c and SPI pins can be one of many sets of pins across the board, so you can be pretty flexible with where you place the screen when designing the PCB.
+Making our way up here, we finally get to the screen. Schematically there isn't much to talk about here - like most small screens, the screens I'm using have their own drive circuitry, so we're really just connecting pins to bare pins here. Swapping to a new screen would require reviewing the screen's datasheet and rejiggering the connections here. The RP2040 is pretty unique in that the I2c and SPI pins can be one of many sets of pins across the board, so you can be pretty flexible with where you place the screen when designing the PCB.
 
 ## USB
 
@@ -209,7 +209,7 @@ Finally to round us off here, we find all these capacitors up at the top. These 
 
 ![a 3d rendering of the PCB](images/the_pcb.png)
 
-So now we've got the entire schematic laid out, and all we have to do is turn that into a PCB! In kicad this happens in a two-step process, first, you agonizingly collect all the footprints for your selected components, scrutinizing and painstakingly fixing any mistakes made by the conversion program that spit them out, and then you lay them all out in PCBNew and connect everything up! When I say agonizingly, I do mean _agonizingly_; I have not figured out a good way to do this. There are dozens of sites that claim to be a one-stop shop for all your eda footprint needs, but every one I've tried suffers from some sort of problem. Whether it's something mundane like terrible inventory, to something more systemic like whatever the heck Mouser's got going on, they all have their faults. For now I've settled on UltraLibrarian, which has a good set of footprints, and sometimes even 3d models, but the pins don't always make sense.
+So now we've got the entire schematic laid out, and all we have to do is turn that into a PCB! In Kicad this happens in a two-step process: first, you agonizingly collect all the footprints for your selected components, scrutinizing and painstakingly fixing any mistakes made by the conversion program that spit them out, and then you lay them all out in PCBNew and connect everything up! When I say agonizingly, I do mean _agonizingly_; I have not figured out a good way to do this. There are dozens of sites that claim to be a one-stop shop for all your eda footprint needs, but every one I've tried suffers from some sort of problem. Whether it's something mundane like terrible inventory, to something more systemic like whatever the heck Mouser's got going on, they all have their faults. For now I've settled on UltraLibrarian, which has a good set of footprints, and sometimes even 3d models, but the pins don't always make sense.
 
 Once you have all your footprints downloaded, imported, and associated, you can start designing your PCB:
 
@@ -228,7 +228,7 @@ Power is in the top left, with audio at the bottom left, input at the bottom, fl
 
 Now we've got a PCB that runs Doom in theory, but how do we get a PCB that runs doom... in practice?
 
-well, you send your design to a fab! Each fab has their own rules and constraints listed on their website, sometimes with step-by-step tutorials on how to configure your EDA for their service; it's a good idea to run through these and make sure your board complies. Shoutouts to [OSHPark](https://www.oshpark.com) here who are a pretty phenomenal, US-based fab. I use them for prototyping as they don't have a minimum price. Plus, you can upload your kicad project directly to them instead of having to generate gerber files! You have to buy stencils on a separate website but they are reasonably priced and even have a neat lil' import button. You're gonna _need_ stencils by the way, unless you can hand-solder a QFN56.
+well, you send your design to a fab! Each fab has their own rules and constraints listed on their website, sometimes with step-by-step tutorials on how to configure your EDA for their service; it's a good idea to run through these and make sure your board complies. Shoutouts to [OSHPark](https://www.oshpark.com) here who are a pretty phenomenal, US-based fab. I use them for prototyping as they don't have a minimum price. Plus, you can upload your Kicad project directly to them instead of having to generate gerber files! You have to buy stencils on a separate website but they are reasonably priced and even have a neat lil' import button. You're gonna _need_ stencils by the way, unless you can hand-solder a QFN56.
 
 # Assembly
 
@@ -242,17 +242,17 @@ There are some tricks you can do to make this easier. Remember when I said my bu
 
 I gotta be honest, even with these tricks I'm not great at this. It's best to get the solder all in one smooth motion but I always need to come back and do another go-round. Luckily you can still do some manual fixup if your solder job is uh... less than ideal.
 
-Counter-intuitively, I find that power is everything when you're doing fixup drag-soldering like this. The more amps your soldering iron can push out, the better. My hakko fx888d is a little beefier than my pinecil and that makes all the difference in how easy it is to fix solder bridges. Also be sure to select a tip that can actually get into the space between the PCB and the component!
+Counter-intuitively, I find that power is everything when you're doing fixup drag-soldering like this. The more amps your soldering iron can push out, the better. My Hakko FX888D is a little beefier than my Pinecil and that makes all the difference in how easy it is to fix solder bridges. Also be sure to select a tip that can actually get into the space between the PCB and the component!
 
 # Flashing / Programming
 
 OK, you're now the proud owner of a custom-built PCB. Nobody else in the _world_ has a device like this in their hands, which can be kind of daunting. Like, forget Doom, how do I even get _any_ program on this device?
 
-Luckily that's pretty easy, you boot the sucker up and press the boot button and wham bam thank you mam, bob's your uncle bessie's your aunt, you've got a USB mass storage device you can _copy_ your program onto! I cannot tell you how much of a mind-blown moment I had the first time I plugged in a raspberry pi pico and saw this. This USB firmware is _embedded into the board_, it's basically impossible to brick. It's amazing. I'm so sick of programming headers and weird little boot rituals and all that junk, I want every microcontroller to use this bootloader.
+Luckily that's pretty easy, you boot the sucker up and press the boot button and wham bam thank you mam, bob's your uncle bessie's your aunt, you've got a USB mass storage device you can _copy_ your program onto! I cannot tell you how much of a mind-blown moment I had the first time I plugged in a Raspberry Pi Pico and saw this. This USB firmware is _embedded into the board_, it's basically impossible to brick. It's amazing. I'm so sick of programming headers and weird little boot rituals and all that junk, I want every microcontroller to use this bootloader.
 
 The first program you should chuck on your PCB is the led blink example from the rp2040 datasheet, but that's boring, so we're going to head on over to the rp2040-doom-lcd github page and download us some Doom firmware. If you don't have your own PCB that's ok, there are a couple off-the-shelf boards that are supported as well, like the [Lilygo TT-Go T-display](https://www.aliexpress.us/item/3256803094729227.html), or these tiny little unnamed [0.42 inch RP2040 boards](https://www.aliexpress.us/item/3256805864747243.html). If you find another board that uses one of the [supported screens](https://github.com/rsheldiii/rp2040-doom-LCD/tree/rp2040/src/pico/pico-screens/screens), it should be relatively simple to get it up and running as well.
 
-So you download your uf2 file, put your PCB into boot mode, chuck that sucker in the folder aaaand... nothing? well, _almost_ nothing. you should see the LED flash just a tiny bit when you plug things in, which probably indicates that you forgot to place the level code in memory. For testing purposes you can download the shareware version of doom free of charge; to grab the full game file, the easiest way is to pay for it on Steam; the number the shareware file gives you is out of order, unfortunately. Once you've followed the instructions about how to shrink and load the level file into memory using picotool, _now_ you're ready for the moment of truth. 
+So you download your uf2 file, put your PCB into boot mode, chuck that sucker in the folder aaaand... nothing? well, _almost_ nothing. you should see the LED flash just a tiny bit when you plug things in, which probably indicates that you forgot to place the level code in memory. For testing purposes you can download the shareware version of doom free of charge. to grab the full game file, the easiest way is to pay for it on Steam; the 1-800 number the shareware file gives you is out of order, unfortunately. Once you've followed the instructions about how to shrink and load the level file into memory using picotool, _now_ you're ready for the moment of truth. 
 
 ![(image of doom playing on PCB)](images/success.png)
 
@@ -271,13 +271,13 @@ I'm calling it the Doom Stamp. It's got:
 * M2 mounting holes 
 * A nice screw terminal for connecting external speakers
 
-The kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card). Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
+The Kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card). Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
 
-If you just want to play around with a tiny board built to run Doom, feel free to send the kicad pcb file off to OSHPark (3 boards are ~$10) or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
+If you just want to play around with a tiny board built to run Doom, feel free to send the Kicad pcb file off to OSHPark (3 boards are ~$10) or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
 
 # BOM shenanigans
 
-You can generate the BOM in the schematic editor; there are also pre-generated BOMs at the base of the kicad project. A few things to note:
+You can generate the BOM in the schematic editor; there are also pre-generated BOMs at the base of the Kicad project. A few things to note:
 
 ### Crystal
 
