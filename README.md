@@ -271,7 +271,7 @@ I'm calling it the Doom Stamp. It's got:
 * M2 mounting holes 
 * A nice screw terminal for connecting external speakers
 
-The Kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card). Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
+The Kicad files are available in [this repository](https://github.com/rsheldiii/rp2040-business-card) in the DoomStamp directory. Note that while the schematic is functionally identical and all components (save the speaker) remain the same, this exact pcb has *NOT BEEN TESTED* yet; I have boards on the way.
 
 If you just want to play around with a tiny board built to run Doom, feel free to send the Kicad pcb file off to OSHPark (3 boards are ~$10) or generate your own gerbers. If you want to use my design as a starting point for your own creation, by all means!
 
