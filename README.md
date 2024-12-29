@@ -33,7 +33,7 @@ The first, and most classic, is via compilation: you upload a program to the dev
 2. You need to compile doom for the hardware target, taking into account any hardware limitations
 3. You need to adapt the display, audio, and input code to use the device's hardware
 
-That's about as much as I'm qualified to explain due to aforementioned lack of hardware-hacking ossicles. There are thousands upon thousands of different types of consumer devices with the capability to run Doom, and probably thousands of people better equipped to explain how to do so, so we'll leave this category to the side for now.
+That's about as much as I'm qualified to explain due to aforementioned lack of hardware-hacking ossicles. There are thousands upon thousands of different types of consumer devices with the capability to run Doom, and probably just as many people better equipped to explain how to do so, so we'll leave this category to the side for now.
 
 # Display
 
