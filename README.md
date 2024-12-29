@@ -52,7 +52,7 @@ While this is not nearly the same as hacking Doom onto a printer while sidestepp
 * PCB design
 * Crystal oscillator circuits
 * The USB specification
-* miniaturization and efficient trace routing
+* Miniaturization and efficient trace routing
 * Early 90's programming
 * And more! 
 
