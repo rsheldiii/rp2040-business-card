@@ -45,7 +45,7 @@ The second way to run Doom applies to things like dot matrix displays or an osci
 
 ![Doom on a keycap](https://camo.githubusercontent.com/0de43c833904ea017ac2b05846da804293f47a14892240541d08a81d158515c1/68747470733a2f2f692e696d6775722e636f6d2f5178615a6451672e6a706567)
 
-The final way to run Doom is to take the original hardware _out_ of the device and run Doom on custom-built hardware _inside_ the device, the most famous example of this being the [pregnancy test](https://www.popularmechanics.com/science/a33957256/this-programmer-figured-out-how-to-play-doom-on-a-pregnancy-test/), but I also made a [keycap](https://github.com/rsheldiii/rp2040-doom-lcd) that runs doom, which is a similar concept, and [this guy](https://youtu.be/o76U0JPrMFk) got Doom running on a LEGO brick in much the same way. 
+The final way to run Doom is to take the original hardware _out_ of the device and run Doom on custom-built hardware _inside_ the device, the most famous example of this being the [pregnancy test](https://www.popularmechanics.com/science/a33957256/this-programmer-figured-out-how-to-play-doom-on-a-pregnancy-test/), but I also made a [keycap](https://github.com/rsheldiii/rp2040-doom-lcd) that runs doom, and [this madlad](https://youtu.be/o76U0JPrMFk) got Doom running on a LEGO brick in much the same way. 
 
 While this is not nearly the same as hacking Doom onto a printer while sidestepping encryption and sniffing protocols, it's not the soulless copout some people would have you believe. If you make your own device that runs Doom, you'll gain a ton of knowledge about:
 
