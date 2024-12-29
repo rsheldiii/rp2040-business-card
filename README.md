@@ -62,7 +62,7 @@ I'm going to walk you through everything I learned getting Doom to run in a coup
 
 ![alt text](<images/doom keycap pcbnew.png>)
 
-The best way to solve a difficult problem is to remove constraints until you can solve it, then add them back one by one. _Understanding_ a problem mirrors this construction; Using my keycap to demonstrate how to design a device that can run Doom would be confusing, as I was designing for a small form factor. Components are crushed together, traces take 90-degree turns where they really shouldn't take 90-degree turns, the works. I don't want you picking up any more of my bad habits than absolutely necessary, so let's start with something a bit more straightforward, and a LOT bigger: My business card!
+The best way to solve a difficult problem is to remove constraints until you can solve it, then add them back one by one. _Understanding_ a problem mirrors this construction; Using my keycap to demonstrate how to design a device that can run Doom would be confusing, as I was designing for a small form factor. Components are crushed together, vias are placed in the middle of pads, traces take 90-degree turns where they really shouldn't take 90-degree turns, the works. I don't want you picking up any more of my bad habits than absolutely necessary, so let's start with something a bit more straightforward, and a LOT bigger: My business card!
 
 ![alt text](images/business_card_2.jpg)
 
