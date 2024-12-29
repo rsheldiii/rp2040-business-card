@@ -78,7 +78,7 @@ So after step 0, step 1 is to prototype. This mess of wires:
 
 ![image of prototype](images/prototype.png)
 
-is actually my original prototype, and believe it or not, it still works! Prototyping is all about the loop: 
+is my original prototype, and believe it or not, it still works! Prototyping is all about the loop: 
 
 * Get to a known good state, then
 * Implement a new feature (and inevitably break the build)
