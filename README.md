@@ -72,7 +72,7 @@ I want to stress this is not _the_ business card that runs doom, it is _a_ busin
 
 But, how did we get here? How did we go from saying "I want to run Doom on my X" to having an X that runs Doom?
 
-Well, step 0 is to have somebody else do it first. Graham Sanderson from the Raspberry Pi foundation wrote a _fantastic_ port of Choco Doom As part of the promotional material for the RP2040. Graham jumped through an amazing amount of hoops to get Doom running on the RP2040, like optimizing WAD file size by over 50% and writing some assembler PIO code to output to VGA, which can be displayed via HDMI. I took Graham's code and built off of it by uh... very carefully ripping out some of those optimizations, and implementing some generic SPI/I2c screen support. if you'd like to learn more about the crazy stuff graham did in his port, I highly recommend his detailed rundown on his [github page](https://kilograham.github.io/rp2040-doom/).
+Well, step 0 is to have somebody else do it first. Graham Sanderson from the Raspberry Pi foundation wrote a _fantastic_ port of Choco Doom as part of the promotional material for the RP2040. Graham jumped through an amazing amount of hoops to get Doom running on the RP2040, like optimizing WAD file size by over 50% and writing some assembler PIO code to output to VGA, which can be displayed via HDMI. I took Graham's code and built off of it by uh... very carefully ripping out some of those optimizations, and implementing some generic SPI/I2c screen support. if you'd like to learn more about the crazy stuff graham did in his port, I highly recommend his detailed rundown on his [github page](https://kilograham.github.io/rp2040-doom/).
 
 So after step 0, step 1 is to prototype. This mess of wires:
 
